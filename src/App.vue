@@ -6,7 +6,7 @@
     <div class="footer">
       <p>
         <a class="flink" href="https://emmanuelurbina.github.io">Emmanuel Lucio Urbina </a> <br>
-        <a class="flink" href="https://devchallenges.io/"> @devchallenge.io </a>
+        <a class="flink" href="https://devchallenges.io/"> @devchallenges.io </a>
        </p>
     </div>
   </div>
