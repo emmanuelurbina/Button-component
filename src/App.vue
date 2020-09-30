@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class='content'>
+    <buttons-component :type='type' :color="color" :shadow="shadow"  />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ButtonsComponent from "./components/ButtonsComponent.vue"
 
 export default {
   name: 'App',
+  data(){
+    return {
+      type: "default",
+      color:"primary",
+      shadow: true
+    }
+  },
   components: {
-    HelloWorld
+    'buttons-component': ButtonsComponent
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+.content {
+  display: flex;
 }
 </style>
