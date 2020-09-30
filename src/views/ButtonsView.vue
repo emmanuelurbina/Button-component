@@ -10,6 +10,7 @@
         :iconLeft="iconLeft"
         :iconRightView="iconRightView"
         :iconRight="iconRight"
+        :disabled="disabled"
       />
     </div>
 
@@ -20,6 +21,17 @@
           <th>-</th>
         </thead>
         <tbody>
+          <tr>
+            <td>Disabled/Enabled</td>
+            <td class="opt">
+              <input
+                type="checkbox"
+                class="check"
+                value=""
+                v-model="disabled"
+              />
+            </td>
+          </tr>
           <tr>
             <td>Button Type</td>
             <td class="opt">
@@ -138,6 +150,7 @@ export default {
   data() {
     return {
       type: "default",
+      disabled:false,
       color: "",
       shadow: true,
       size: "md",

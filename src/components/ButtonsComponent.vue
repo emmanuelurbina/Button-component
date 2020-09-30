@@ -3,6 +3,7 @@
     type="button"
     class="btn"
     :class="[type, color, size, shadow ? 'shadow' : '']"
+    :disabled="disabled"
   >
     <i v-if="iconLeftView" class="material-icons left-icon"> {{ iconLeft }} </i>
     Button
@@ -13,7 +14,7 @@
 <script>
 export default {
   name: "ButtonsComponent",
-  props: ["type", "color", "shadow", "size", "iconLeftView", "iconLeft", "iconRight", "iconRightView"],
+  props: ["type", "color", "shadow", "size", "iconLeftView", "iconLeft", "iconRight", "iconRightView","disabled"],
 };
 </script>
 
