@@ -1,7 +1,16 @@
 <template>
   <div>
     <div class="buttons">
-      <buttons-component :type="type" :color="color" :shadow="shadow" :size="size" />
+      <buttons-component
+        :type="type"
+        :color="color"
+        :shadow="shadow"
+        :size="size"
+        :iconLeftView="iconLeftView"
+        :iconLeft="iconLeft"
+        :iconRightView="iconRightView"
+        :iconRight="iconRight"
+      />
     </div>
 
     <div class="table-content">
@@ -56,6 +65,64 @@
               </select>
             </td>
           </tr>
+          <tr>
+            <td>Box-Shadow</td>
+            <td class="opt">
+              <input type="checkbox" class="check" value="" v-model="shadow" />
+            </td>
+          </tr>
+          <tr>
+            <td>Icon Left</td>
+            <td class="opt">
+              <input
+                type="checkbox"
+                class="check"
+                value=""
+                v-model="iconLeftView"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Icon Left List</td>
+            <td class="opt">
+              <select class="select" @change="changeIconLeft">
+                <option value="home" selected>Select Icon</option>
+                <option
+                  v-for="(icon, index) in iconList"
+                  :key="index"
+                  :value="icon"
+                >
+                  {{ icon }}
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Icon right</td>
+            <td class="opt">
+              <input
+                type="checkbox"
+                class="check"
+                value=""
+                v-model="iconRightView"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Icon right List</td>
+            <td class="opt">
+              <select class="select" @change="changeIconRight">
+                <option value="home" selected>Select Icon</option>
+                <option
+                  v-for="(icon, index) in iconList"
+                  :key="index"
+                  :value="icon"
+                >
+                  {{ icon }}
+                </option>
+              </select>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -73,7 +140,12 @@ export default {
       type: "default",
       color: "",
       shadow: true,
-      size: 'md',
+      size: "md",
+      iconLeftView: false,
+      iconLeft: "",
+      iconRightView: false,
+      iconRight: "",
+      iconList: ["thumb_up", "thumb_down", "favorite", "shopping_cart", "add"],
       types: ["default", "outline", "text"],
       colors: ["default", "primary", "secondary", "danger"],
       sizes: [
@@ -96,6 +168,12 @@ export default {
     changeSize: function () {
       this.size = event.target.value;
     },
+    changeIconLeft: function () {
+      this.iconLeft = event.target.value;
+    },
+    changeIconRight: function () {
+      this.iconRight = event.target.value;
+    },
   },
 };
 </script>
@@ -117,13 +195,12 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-
 th,
 td {
   padding: 8px;
 }
 .opt {
-    text-align: right;
+  text-align: right;
 }
 .select {
   cursor: pointer;
@@ -132,6 +209,10 @@ td {
   border-radius: 8px;
 }
 
+.check {
+  width: 20px;
+  height: 20px;
+}
 @media screen and (max-width: 600px) {
   table {
     width: 100%;

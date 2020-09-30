@@ -1,34 +1,73 @@
 <template>
-
-    <button type="button" class="btn" :class="[type, color, size, shadow ? 'shadow': '']">
-      Button
-    </button>
-  
+  <button
+    type="button"
+    class="btn"
+    :class="[type, color, size, shadow ? 'shadow' : '']"
+  >
+    <i v-if="iconLeftView" class="material-icons left-icon"> {{ iconLeft }} </i>
+    Button
+    <i v-if="iconRightView" class="material-icons right-icon"> {{ iconRight }} </i>
+  </button>
 </template>
 
 <script>
 export default {
   name: "ButtonsComponent",
-  props: ["type", "color", "shadow", "size"],
+  props: ["type", "color", "shadow", "size", "iconLeftView", "iconLeft", "iconRight", "iconRightView"],
 };
 </script>
 
 <style scoped>
-
-
 /* class btn and shadow custom*/
 .btn {
   border: none;
   cursor: pointer;
   outline: none;
-  padding: 10px 15px; /* md default size */
+
   border-radius: 6px;
   font-weight: 500;
   font-size: 12px;
   font-family: "Noto Sans JP", sans-serif;
+  position: relative;
 }
 .shadow {
   box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.left-icon {
+  position: absolute;
+  top: 12px;
+  left: 0%;
+  font-size: 14px;
+  margin: 0 3px;
+}
+.sm .left-icon{
+  top: 8px;
+  font-size: 12px;
+  margin: 0 2px;
+}
+.lg .left-icon{
+  top: 15px;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.right-icon {
+  position: absolute;
+  top: 12px;
+  right: 0%;
+  font-size: 14px;
+  margin: 0 3px;
+}
+.sm .right-icon{
+  top: 8px;
+  font-size: 12px;
+  margin: 0 2px;
+}
+.lg .right-icon{
+  top: 15px;
+  font-size: 18px;
+  margin: 0 5px;
 }
 
 /*Types:
@@ -203,15 +242,15 @@ danger
 /* sizing */
 
 .sm {
-  padding: 5px 10px;
+  padding: 5px 15px;
 }
 
 .md {
   /* default size */
-  padding: 10px 15px;
+  padding: 10px 20px;
 }
 
 .lg {
-  padding: 15px 25px;
+  padding: 15px 30px;
 }
 </style>
