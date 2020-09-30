@@ -26,6 +26,7 @@ export default {
 
 .content {
   display: flex;
-  justify-content: center;
+  
+ justify-content: center;
 }
 </style>

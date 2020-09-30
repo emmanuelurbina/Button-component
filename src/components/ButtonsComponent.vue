@@ -1,22 +1,20 @@
 <template>
-  <div class="buttons">
-    <button type="button" class="btn" :class="[type, color, shadow ? 'shadow': '']">
+
+    <button type="button" class="btn" :class="[type, color, size, shadow ? 'shadow': '']">
       Button
     </button>
-  </div>
+  
 </template>
 
 <script>
 export default {
   name: "ButtonsComponent",
-  props: ["type", "color", "shadow"],
+  props: ["type", "color", "shadow", "size"],
 };
 </script>
 
 <style scoped>
-.buttons {
-  margin: 5em auto;
-}
+
 
 /* class btn and shadow custom*/
 .btn {
