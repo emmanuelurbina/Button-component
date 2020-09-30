@@ -1,23 +1,16 @@
 <template>
-  <div id="app" class='content'>
-    <buttons-component :type='type' :color="color" :shadow="shadow"  />
+  <div id="app" class="content">
+    <ButtonsView />
   </div>
 </template>
 
 <script>
-import ButtonsComponent from "./components/ButtonsComponent.vue"
+import ButtonsView from "./views/ButtonsView.vue"
 
 export default {
   name: 'App',
-  data(){
-    return {
-      type: "default",
-      color:"primary",
-      shadow: true
-    }
-  },
   components: {
-    'buttons-component': ButtonsComponent
+    ButtonsView
   }
 }
 </script>
@@ -33,5 +26,6 @@ export default {
 
 .content {
   display: flex;
+  justify-content: center;
 }
 </style>
